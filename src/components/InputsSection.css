@@ -1,0 +1,45 @@
+.input-form{
+    background-color: var(--dark-blue);
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    margin-top: 20px;
+}
+
+input {
+    background-color: var(--dark-blue);
+    border: 1px solid #60CAB7;
+    border-radius: 4px;
+    width: 250px;
+    height: 25px;
+    color: #FFF;
+    font-size: 18px;
+    padding: 5px;
+}
+
+input::placeholder {
+    color: #377368;
+}
+
+input:focus {
+    outline: none;
+}
+
+#continent {
+    background-color: var(--dark-blue);
+    border: 1px solid #60CAB7;
+    color: #FFF;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 400px) {
+    .input-form{
+        flex-direction: column;
+        height: 80px;
+    }
+}
