@@ -26,3 +26,7 @@
 .country-name:hover {
     color: #60CAB7;
 }
+
+a {
+    text-decoration: none;
+}

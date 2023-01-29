@@ -1,0 +1,43 @@
+.page-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.country-info-section {
+    width: 90%;
+    height: 90vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    background-color: #122135;
+}
+
+.image-flag {
+    border-radius: 10px;
+    width: 45%;
+    height: 50%;
+    margin-left: 15px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.image-flag > img {
+    border-radius: 10px;
+  
+}
+
+.country-text {
+    min-width: 500px;
+    color: #FFF;
+    text-align: start;
+    line-height: 1.5em;
+}
+
+.country-text > h1 {
+    text-align: center;
+    padding-bottom: 15px;
+}

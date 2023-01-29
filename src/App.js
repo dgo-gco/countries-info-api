@@ -5,12 +5,10 @@ import { Main } from './components/Main'
 // import { countries } from './data/countries-data'
 import { useEffect, useState } from 'react';
 
-
-
 function App() {
   const [worldCountriesData, setWorldCountriesData] = useState([]);
   const [search, setSearch] = useState('')
-
+  console.log(worldCountriesData)
   useEffect(() => {
      fetch("https://restcountries.com/v3.1/all")
     .then(res => res.json())
@@ -37,19 +35,19 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Navbar />
-      <InputsSection
-      handleSearch={handleSearch}
-      value={search}
-      />
-      <div className="main-section-main">
-        <Main 
-        //countryData is my prop, I'll send it to Main({countryData})
-        countryData={worldCountriesData}
-        />
-      </div>
-    </div>
+       <div className="App">
+          <Navbar />
+          <InputsSection
+          handleSearch={handleSearch}
+          value={search}
+          />
+          <div className="main-section-main">
+            <Main 
+            //countryData is my prop, I'll send it to Main({countryData})
+            countryData={worldCountriesData}
+            />
+          </div>
+        </div>
   );
 }
 
