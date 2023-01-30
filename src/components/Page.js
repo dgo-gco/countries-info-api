@@ -5,26 +5,43 @@ import { useParams } from 'react-router-dom'
 
 export const Page = () => {
     const { id } = useParams()
+    const url = `https://restcountries.com/v3.1/alpha/${id}`
     // console.log(id)
     const [countryInfo, setCountryInfo] = useState([])
-    // const [countryLanguage, setCountryLanguage] = useState([])
-    console.log(countryInfo)
+    const [countryLanguage, setCountryLanguage] = useState([])
+    const [countryCurrency, setCountryCurrency] = useState([])
+    console.log(countryLanguage)
+    console.log(countryCurrency)
 
    useEffect(() => {
-     fetch(`https://restcountries.com/v3.1/alpha/${id}`)
+     fetch(url)
     .then(res => res.json())
     .then(data => setCountryInfo(data))
     }, [])
 
-    // const langs = countryInfo[0].currencies
-    // console.log(langs)
-    // let langues = ''
+    useEffect(() => {
+     fetch(url)
+    .then(res => res.json())
+    .then(datas => setCountryLanguage(datas[0].languages))
+    }, [])
 
-    // for (let key in langs){
-    //     langues += langs[key] + ', '
-    // }
+    useEffect(() => {
+     fetch(url)
+    .then(res => res.json())
+    .then(datas => setCountryCurrency(datas[0].currencies))
+    }, [])
 
-    // console.log(langues)
+
+    let langues = ''
+    for (let key in countryLanguage){
+        langues += countryLanguage[key] + ', '
+    }
+
+    let currencies = ''
+    for (let key in countryCurrency){
+        currencies += Object.values(countryCurrency[key]) + ', '
+    }
+    console.log(currencies)
     
   return (
     <div>
@@ -46,14 +63,14 @@ export const Page = () => {
                         <p><b>Region:</b> {country.region}</p>
                         <p><b>Subregion:</b> {country.subregion}</p>
                         <br />
-                        <p><b>Currency:</b> {country.region}</p>
-                        <p><b>Languages:</b> {}</p>
-                        <p><b>Top Level Domain:</b> {country.region}</p>
+                        <p><b>Currency:</b> {currencies}</p>
+                        <p><b>Languages:</b> {langues}</p>
                     </div>
                 </div>
             </div>
                     ))   
                 }
+                
         </section>
     </div>
   )
