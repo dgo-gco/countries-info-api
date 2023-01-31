@@ -8,9 +8,8 @@ export const Page = () => {
     const url = `https://restcountries.com/v3.1/alpha/${id}`
     // console.log(id)
     const [countryInfo, setCountryInfo] = useState([])
-    const [countryLanguage, setCountryLanguage] = useState([])
     const [countryCurrency, setCountryCurrency] = useState([])
-    console.log(countryLanguage)
+    console.log(countryInfo)
     console.log(countryCurrency)
 
    useEffect(() => {
@@ -22,26 +21,13 @@ export const Page = () => {
     useEffect(() => {
      fetch(url)
     .then(res => res.json())
-    .then(datas => setCountryLanguage(datas[0].languages))
-    }, [])
-
-    useEffect(() => {
-     fetch(url)
-    .then(res => res.json())
     .then(datas => setCountryCurrency(datas[0].currencies))
     }, [])
-
-
-    let langues = ''
-    for (let key in countryLanguage){
-        langues += countryLanguage[key] + ', '
-    }
 
     let currencies = ''
     for (let key in countryCurrency){
         currencies += Object.values(countryCurrency[key]) + ', '
     }
-    console.log(currencies)
     
   return (
     <div>
@@ -49,7 +35,7 @@ export const Page = () => {
         <section className="page-container">
                 {
                     countryInfo.map((country) => (
-                <div className="country-info-section">
+                <div className="country-info-section" key={country.area}>
                 <div className='coat-of-arms' style={
                     {backgroundImage: `url(${country.coatOfArms.png})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center', 
                     }}></div>
@@ -64,7 +50,7 @@ export const Page = () => {
                         <p><b>Subregion:</b> {country.subregion}</p>
                         <br />
                         <p><b>Currency:</b> {currencies}</p>
-                        <p><b>Languages:</b> {langues}</p>
+                        <p><b>Languages:</b> {Object.values(country.languages)}</p>                       
                     </div>
                 </div>
             </div>
