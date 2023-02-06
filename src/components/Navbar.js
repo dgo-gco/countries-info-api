@@ -12,7 +12,6 @@ export const Navbar = () => {
   return (
     <div className='navbar'>
         <h1>THE WORLD BOOK</h1>
-        <button onClick={lightMode} className='btn-nav'>Dark Mode</button>
     </div>
   )
 }

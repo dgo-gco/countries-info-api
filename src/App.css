@@ -20,3 +20,57 @@ body {
   background-color: var(--dark-blue);
   font-family: Lato, sans-serif;
 }
+
+#dark {
+  background-color: #09192F;
+}
+
+#light {
+  background-color: #d2fff7;
+}
+
+#dark .country-card {
+  background-color: #122135;
+}
+
+#light .country-card {
+  background-color: #88c1b7;
+}
+
+.btn {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 30px;
+  position: absolute;
+}
+
+#dark .input-form{
+  background-color: #09192F;
+}
+
+#light .input-form{
+  background-color: #d2fff7;
+}
+
+#light .navbar{
+  background-color: #d2fff7;
+  color: #09192F;
+}
+
+#light input::placeholder {
+  color: #09192F;
+}
+
+#light input {
+  background-color: #d2fff7;
+  border: 1px solid #09192F;
+}
+
+#light #continent {
+  background-color: #d2fff7;
+  border: 1px solid #09192F;
+  color: #09192F;
+}

@@ -26,7 +26,7 @@ export const Page = () => {
 
     let currencies = ''
     for (let key in countryCurrency){
-        currencies += Object.values(countryCurrency[key]) + ', '
+        currencies += Object.values(countryCurrency[key]).join(', ')
     }
     
   return (
@@ -50,7 +50,7 @@ export const Page = () => {
                         <p><b>Subregion:</b> {country.subregion}</p>
                         <br />
                         <p><b>Currency:</b> {currencies}</p>
-                        <p><b>Languages:</b> {Object.values(country.languages)}</p>                       
+                        <p><b>Languages:</b> {Object.values(country.languages).join(', ')}</p>                       
                     </div>
                 </div>
             </div>

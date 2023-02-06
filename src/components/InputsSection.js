@@ -1,10 +1,8 @@
-import React from 'react'
+import { React } from 'react'
 import './InputsSection.css'
 
 
-export const InputsSection = ({ handleSearch, value }) => {
-
-
+export const InputsSection = ({ handleSearch, value, userSelect }) => {
   return (
     <div className='input-section'>
         <form action="" className='input-form'>
@@ -17,7 +15,10 @@ export const InputsSection = ({ handleSearch, value }) => {
             value={value}
             />
             <div className="list-inp">
-                    <select id='continent'>
+                    <select id='continent'
+                    onChange={userSelect}
+                    >
+                        <option value="Continent">--Continent--</option>
                         <option value="Africa">Africa</option>
                         <option value="America">America</option>
                         <option value="Asia">Asia</option>

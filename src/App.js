@@ -2,12 +2,18 @@ import './App.css';
 import { Navbar } from './components/Navbar'
 import { InputsSection } from './components/InputsSection'
 import { Main } from './components/Main'
-// import { countries } from './data/countries-data'
-import { useEffect, useState } from 'react';
+import Switch from "react-switch";
+import { createContext, useEffect, useState } from 'react';
+
+export const ThemeContext = createContext(null)
 
 function App() {
   const [worldCountriesData, setWorldCountriesData] = useState([]);
   const [search, setSearch] = useState('')
+  const [selection, setSelection] = useState('')
+
+  const [theme, setTheme] = useState('dark')
+
   console.log(worldCountriesData)
   useEffect(() => {
      fetch("https://restcountries.com/v3.1/all")
@@ -33,13 +39,39 @@ function App() {
       //After this f, my State Variable will change to match only the users request
     }
 
+    const userSelect = e => {
+      setSelection(e.target.value);
+      regionSelection(e.target.value)
+    }
+
+    const regionSelection = (userRegion) => {
+      let userSelection = worldCountriesData.filter((item) => {
+        if(item.region.includes(userRegion)){
+          return item
+        }
+      })
+      setWorldCountriesData(userSelection)
+    }
+
+    const toggleBtn = () => {
+      setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+    }
 
   return (
-       <div className="App">
+    <ThemeContext.Provider value={{theme, toggleBtn}}>
+        <div className="App" id={theme}>
+          <div className="btn">
+            <Switch className='switchR' onChange={toggleBtn} 
+            checked={theme === 'light'} offColor={'#d2fff7'}
+            onColor={'#09192F'} uncheckedIcon={false} 
+            checkedIcon={false} offHandleColor={'#09192F'}/>
+          </div>
           <Navbar />
           <InputsSection
           handleSearch={handleSearch}
           value={search}
+          countryData={worldCountriesData}
+          userSelect={userSelect}
           />
           <div className="main-section-main">
             <Main 
@@ -48,6 +80,8 @@ function App() {
             />
           </div>
         </div>
+    </ThemeContext.Provider>
+
   );
 }
 

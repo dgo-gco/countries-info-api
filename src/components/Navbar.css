@@ -16,15 +16,6 @@
     color: #FFF;
 }
 
-.btn-nav {
-    background-color: #09192F;
-    border: 1px solid #60CAB7;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: #FFF;
-    cursor: pointer;
-}
-
 @media screen and (max-width: 400px) {
     h1 {
        font-size: 18px;

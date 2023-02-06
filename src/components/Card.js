@@ -16,9 +16,9 @@ export const Card = ({ countryData }) => {
             <div className="country-txt">
               <p className='country-name'><b>{countryData.name.common}</b></p>
               <br />
-              <p>Population: {populationNum}</p>
-              <p>Continent: {countryData.continents}</p>
-              <p>Capital: {countryData.capital}</p>
+              <p><b>Population:</b> {populationNum}</p>
+              <p><b>Continent:</b> {countryData.continents}</p>
+              <p><b>Capital:</b> {countryData.capital}</p>
               <p></p>
             </div>
           </div>
