@@ -1,22 +1,22 @@
 .main-sec {
-    width: 90%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    justify-items: center;
-    grid-gap: 15px;
-    padding-top: 20px;
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-items: center;
+  grid-gap: 15px;
+  padding-top: 20px;
 }
 
 .country-card {
-    width: 250px;
-    height: 250px;
-    color: #FFF;
-    border-radius: 10px;
+  width: 250px;
+  height: 250px;
+  color: #fff;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 400px) {
-    .main-sec {
-        grid-template-columns: 100%;
-    }
+  .main-sec {
+    grid-template-columns: 100%;
+  }
 }

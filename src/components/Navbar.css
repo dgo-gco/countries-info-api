@@ -16,6 +16,15 @@
     color: #FFF;
 }
 
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+#light .link{
+    color: black;
+}
+
 @media screen and (max-width: 400px) {
     h1 {
        font-size: 18px;

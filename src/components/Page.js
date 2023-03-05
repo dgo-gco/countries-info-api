@@ -1,16 +1,12 @@
 import React, { useState, useEffect} from 'react'
-import { Navbar } from './Navbar'
 import './Page.css'
 import { useParams } from 'react-router-dom'
 
-export const Page = () => {
+const Page = () => {
     const { id } = useParams()
     const url = `https://restcountries.com/v3.1/alpha/${id}`
-    // console.log(id)
     const [countryInfo, setCountryInfo] = useState([])
     const [countryCurrency, setCountryCurrency] = useState([])
-    console.log(countryInfo)
-    console.log(countryCurrency)
 
    useEffect(() => {
      fetch(url)
@@ -31,7 +27,6 @@ export const Page = () => {
     
   return (
     <div>
-        <Navbar />
         <section className="page-container">
                 {
                     countryInfo.map((country) => (
@@ -61,3 +56,5 @@ export const Page = () => {
     </div>
   )
 }
+
+export default Page
